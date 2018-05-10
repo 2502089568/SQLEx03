@@ -20,6 +20,7 @@ public class DBManager {
     public DBManager(Context context){
         this.context=context;
         openHelper = new DaoMaster.DevOpenHelper(context,dbName,null);//第三个参数为Cursor();
+
     }
 
     public  static DBManager getInstance(Context context){
@@ -56,7 +57,7 @@ public class DBManager {
     }
 
     //插入一条记录
-    public void inserUser(User user){
+    public void insertUser(User user){
         if(user == null){ return;}
         DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
         DaoSession daoSession = daoMaster.newSession();
@@ -74,7 +75,7 @@ public class DBManager {
     }
 
     //删除一条记录
-    public void deleterUser(User user){
+    public void deleteUser(User user){
         DaoMaster daoMaster = new DaoMaster(getWritableDatabase());
         DaoSession daoSession = daoMaster.newSession();
         UserDao userDao = daoSession.getUserDao();
